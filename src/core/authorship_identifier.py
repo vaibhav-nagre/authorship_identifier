@@ -3,11 +3,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 def process_data(filename, known_dir):
-    # Read the content of the input file
     with open(filename, 'r') as file:
         input_text = file.read()
     
-    # Read the content of known author files
     known_texts = []
     author_names = []
     for author_file in os.listdir(known_dir):
@@ -16,21 +14,16 @@ def process_data(filename, known_dir):
             with open(author_path, 'r') as file:
                 known_texts.append(file.read())
                 author_names.append(os.path.splitext(author_file)[0])
-    
-    # Combine the input text with known texts
+
     texts = [input_text] + known_texts
     
-    # Compute TF-IDF vectors
     vectorizer = TfidfVectorizer()
     tfidf_matrix = vectorizer.fit_transform(texts)
     
-    # Compute cosine similarity between the input text and known texts
     cosine_similarities = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:]).flatten()
     
-    # Find the index of the most similar known text
     best_match_index = cosine_similarities.argmax()
     
-    # Get the corresponding author name
     best_match_author = author_names[best_match_index]
     
     print(f"Debug: Found best match author: {best_match_author}")

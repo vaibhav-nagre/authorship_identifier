@@ -25,7 +25,7 @@ class MainApp:
         self.menu_bar.add_cascade(label="Help", menu=self.help_menu)
         self.help_menu.add_command(label="About", command=self.show_about)
 
-        # Create a frame for the file selection and analysis
+        # frame for the file selection and analysis
         self.frame = tk.Frame(root)
         self.frame.pack(pady=10)
 
@@ -35,11 +35,11 @@ class MainApp:
         self.select_button = tk.Button(self.frame, text="Select File", command=self.select_file)
         self.select_button.grid(row=0, column=1, padx=10, pady=10)
 
-        # Create a text area to display the file content
+        # text area to display the file content
         self.text_area = scrolledtext.ScrolledText(root, wrap=tk.WORD, width=80, height=20)
         self.text_area.pack(pady=10)
 
-        # Create a label to display the result
+        # label to display the result
         self.result_label = tk.Label(root, text="", font=("Helvetica", 14))
         self.result_label.pack(pady=10)
 
