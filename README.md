@@ -1,4 +1,4 @@
-## Authorship Identifier - GUI
+# Authorship Identifier - GUI
 
 1. Clone the repository
 
