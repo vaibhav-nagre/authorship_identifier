@@ -6,7 +6,7 @@ from core.authorship_identifier import process_data, extract_author_name
 class MainApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Authorship Identifier")
+        self.root.title("CSIC 691 - Authorship Identifier")
         self.root.geometry("800x600")
 
         # Create a menu bar
